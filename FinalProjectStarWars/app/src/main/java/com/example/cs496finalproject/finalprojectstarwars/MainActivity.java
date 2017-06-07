@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_search:
                 mDrawerLayout.closeDrawers();
                 return true;
+            case R.id.nav_compare:
+                mDrawerLayout.closeDrawers();
+                return true;
             default:
                 return false;
         }
