@@ -1,7 +1,9 @@
 package com.example.cs496finalproject.finalprojectstarwars;
 
 import android.content.res.Configuration;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +15,7 @@ import android.view.MenuItem;
 import java.util.List;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
 
+        NavigationView navigationView = (NavigationView)findViewById(R.id.nv_navigation_drawer);
+        navigationView.setNavigationItemSelectedListener(this);
+
     }
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
@@ -61,4 +66,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.nav_search:
+                mDrawerLayout.closeDrawers();
+                return true;
+            default:
+                return false;
+        }
+    }
 }
