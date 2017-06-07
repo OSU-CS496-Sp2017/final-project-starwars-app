@@ -3,14 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ListPreference
-        android:key="@string/pref_sort_key"
-        android:title="@string/pref_sort_title"
-        android:dialogTitle="@string/pref_sort_title"
-        android:summary="%s"
-        android:entries="@array/pref_sort_entries"
-        android:entryValues="@array/pref_sort_values"
-        android:defaultValue="@string/pref_sort_default" />
 
     <ListPreference
         android:key="@string/pref_language_key"
@@ -23,22 +15,19 @@
 
     <EditTextPreference
         android:key="@string/pref_user_key"
-        android:title="@string/pref_user_title"
+        android:title="@string/pref_user_title1"
         android:dialogTitle="@string/pref_user_title" />
+
+    <EditTextPreference
+        android:key="@string/pref_search_key"
+        android:title="@string/pref_search_title"
+        android:dialogTitle="@string/pref_search_title" />
 
     <PreferenceCategory android:title="@string/pref_in_title">
         <CheckBoxPreference
             android:key="@string/pref_in_name_key"
             android:title="@string/pref_in_name_title"
             android:defaultValue="@bool/pref_in_name_default" />
-        <CheckBoxPreference
-            android:key="@string/pref_in_description_key"
-            android:title="@string/pref_in_description_title"
-            android:defaultValue="@bool/pref_in_description_default" />
-        <CheckBoxPreference
-            android:key="@string/pref_in_readme_key"
-            android:title="@string/pref_in_readme_title"
-            android:defaultValue="@bool/pref_in_readme_default" />
     </PreferenceCategory>
 
 </PreferenceScreen>

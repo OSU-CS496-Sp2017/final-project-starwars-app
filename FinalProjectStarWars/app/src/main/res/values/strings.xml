@@ -29,6 +29,16 @@
         <string name="pref_sort_updated_value" translatable="false">updated</string>
         <string name="pref_sort_default">@string/pref_sort_stars_value</string>
 
+        <string name="pref_search_key" translatable="false">pref_search</string>
+        <string name="pref_search_title">Second Search Entry</string>
+        <string name="pref_search_value1">People</string>
+        <string name="pref_search_value2">Planets</string>
+        <string name="pref_search_value3">Vehicles</string>
+        <string name="pref_search_default">@string/pref_search_planets</string>
+        <string name="pref_user_key1">TempUser1</string>
+        <string name="pref_user_title1">First Search Entry</string>
+        <string name="pref_user_key2">TempUser2</string>
+        <string name="pref_user_title2">TempTitle2</string>
         <!-- - - - - - - - - - - - - - - - -
              - Used for language preference -
              - - - - - - - - - - - - - - - - -->
@@ -67,8 +77,12 @@
              - Used for user preference -
              - - - - - - - - - - - - - - - - -->
         <string name="pref_user_key" translatable="false">pref_user</string>
-        <string name="pref_user_title">GitHub user</string>
+        <string name="pref_user_title">Search Value 1</string>
 
+    <string name="pref_search_value_key1" translatable="false"></string>
+    <string name="pref_search_1">Please Enter First Search Entry</string>
 
+    <string name="pref_search_value_key2" translatable="false"></string>
+    <string name="pref_search_2">Please Enter Second Search Entry</string>
 
 </resources>
