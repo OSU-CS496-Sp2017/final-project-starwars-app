@@ -14,16 +14,16 @@
         <item>@string/pref_sort_updated_value</item>
     </string-array>
 
-    <string-array name="pref_search_entries">
-        <item>@string/pref_search_planets</item>
-        <item>@string/pref_search_people</item>
-        <item>@string/pref_search_vehicles</item>
+    <string-array name="pref_swapi_entries">
+        <item>@string/pref_swapi_planets</item>
+        <item>@string/pref_swapi_people</item>
+        <item>@string/pref_swapi_vehicles</item>
     </string-array>
 
-    <string-array name="pref_search_values">
-        <item>@string/pref_search_value1</item>
-        <item>@string/pref_search_value2</item>
-        <item>@string/pref_search_value3</item>
+    <string-array name="pref_swapi_value">
+        <item>@string/pref_swapi_planets_value</item>
+        <item>@string/pref_swapi_people_value</item>
+        <item>@string/pref_swapi_vehicles_value</item>
     </string-array>
 
     <string-array name="pref_language_entries">
@@ -47,7 +47,4 @@
         <item>@string/pref_language_ruby_value</item>
         <item>@string/pref_language_swift_value</item>
     </string-array>
-    <string name="pref_search_planets">Planets</string>
-    <string name="pref_search_people">People</string>
-    <string name="pref_search_vehicles">Vehicles</string>
 </resources>

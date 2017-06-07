@@ -4,30 +4,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+
     <ListPreference
-        android:key="@string/pref_language_key"
-        android:title="@string/pref_language_title"
-        android:dialogTitle="@string/pref_language_title"
+        android:key="@string/pref_swapi_key"
+        android:title="@string/pref_swapi_title"
+        android:dialogTitle="@string/pref_swapi_title"
         app:summary="%s"
-        android:entries="@array/pref_language_entries"
-        android:entryValues="@array/pref_language_values"
-        android:defaultValue="@string/pref_language_default"/>
+        android:entries="@array/pref_swapi_entries"
+        android:entryValues="@array/pref_swapi_value"
+        android:defaultValue="@string/pref_swapi_default"
+        />
 
     <EditTextPreference
-        android:key="@string/pref_user_key"
-        android:title="@string/pref_user_title1"
-        android:dialogTitle="@string/pref_user_title" />
+        android:key="@string/pref_swapi_search_key1"
+        android:title="@string/pref_swapi_search_title1"
+        android:dialogTitle="@string/pref_swapi_search_title1" />
 
     <EditTextPreference
-        android:key="@string/pref_search_key"
-        android:title="@string/pref_search_title"
-        android:dialogTitle="@string/pref_search_title" />
+        android:key="@string/pref_swapi_search_key2"
+        android:title="@string/pref_swapi_search_title2"
+        android:dialogTitle="@string/pref_swapi_search_title2" />
 
-    <PreferenceCategory android:title="@string/pref_in_title">
-        <CheckBoxPreference
-            android:key="@string/pref_in_name_key"
-            android:title="@string/pref_in_name_title"
-            android:defaultValue="@bool/pref_in_name_default" />
-    </PreferenceCategory>
 
 </PreferenceScreen>

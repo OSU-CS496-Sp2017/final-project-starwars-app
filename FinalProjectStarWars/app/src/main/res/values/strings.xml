@@ -29,16 +29,28 @@
         <string name="pref_sort_updated_value" translatable="false">updated</string>
         <string name="pref_sort_default">@string/pref_sort_stars_value</string>
 
+
         <string name="pref_search_key" translatable="false">pref_search</string>
         <string name="pref_search_title">Second Search Entry</string>
-        <string name="pref_search_value1">People</string>
-        <string name="pref_search_value2">Planets</string>
-        <string name="pref_search_value3">Vehicles</string>
-        <string name="pref_search_default">@string/pref_search_planets</string>
-        <string name="pref_user_key1">TempUser1</string>
-        <string name="pref_user_title1">First Search Entry</string>
-        <string name="pref_user_key2">TempUser2</string>
-        <string name="pref_user_title2">TempTitle2</string>
+
+        <string name="pref_swapi_title">Search By</string>
+        <string name="pref_swapi_key" translatable="false">pref_swapi</string>
+        <string name="pref_swapi_people">People</string>
+        <string name="pref_swapi_people_value" translatable="false">people</string>
+        <string name="pref_swapi_planets">Planets</string>
+        <string name="pref_swapi_planets_value" translatable="false">planets</string>
+        <string name="pref_swapi_vehicles">Vehicles</string>
+        <string name="pref_swapi_vehicles_value" translatable="false">vehicles</string>
+        <string name="pref_swapi_default">@string/pref_swapi_planets</string>
+
+
+        <string name="pref_search_key1">TempUser1</string>
+        <string name="pref_search_title1">First Search Entry</string>
+        <string name="pref_search_key2">TempUser2</string>
+        <string name="pref_search_title2">TempTitle2</string>
+
+
+
         <!-- - - - - - - - - - - - - - - - -
              - Used for language preference -
              - - - - - - - - - - - - - - - - -->
@@ -79,10 +91,10 @@
         <string name="pref_user_key" translatable="false">pref_user</string>
         <string name="pref_user_title">Search Value 1</string>
 
-    <string name="pref_search_value_key1" translatable="false"></string>
-    <string name="pref_search_1">Please Enter First Search Entry</string>
 
-    <string name="pref_search_value_key2" translatable="false"></string>
-    <string name="pref_search_2">Please Enter Second Search Entry</string>
+        <string name="pref_swapi_search_key1" translatable="false">pref_swapi_1</string>
+        <string name="pref_swapi_search_title1">Please Enter Your Search</string>
 
+        <string name="pref_swapi_search_key2" translatable="false">pref_swapi_2</string>
+        <string name="pref_swapi_search_title2">Please Enter Your Search</string>
 </resources>

@@ -16,16 +16,23 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey){
         addPreferencesFromResource(R.xml.prefs);
-        EditTextPreference userPref = (EditTextPreference)findPreference(getString(R.string.pref_user_key));
-        userPref.setSummary(userPref.getText());
+        EditTextPreference userPref1 = (EditTextPreference)findPreference(getString(R.string.pref_swapi_search_key1));
+        EditTextPreference userPref2 = (EditTextPreference)findPreference(getString(R.string.pref_swapi_search_key2));
+        userPref1.setSummary(userPref1.getText());
+        userPref2.setSummary(userPref2.getText());
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key){
-        if (key.equals(getString(R.string.pref_user_key))){
-            EditTextPreference userPref = (EditTextPreference)findPreference(key);
-            userPref.setSummary(userPref.getText());
+        if (key.equals(getString(R.string.pref_swapi_search_key1))){
+            EditTextPreference userPref1 = (EditTextPreference)findPreference(key);
+            userPref1.setSummary(userPref1.getText());
         }
+        if (key.equals(getString(R.string.pref_swapi_search_key2))){
+            EditTextPreference userPref2 = (EditTextPreference)findPreference(key);
+            userPref2.setSummary(userPref2.getText());
+        }
+
     }
 
     @Override
@@ -39,6 +46,5 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
         super.onPause();
         getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
     }
-
 
 }
