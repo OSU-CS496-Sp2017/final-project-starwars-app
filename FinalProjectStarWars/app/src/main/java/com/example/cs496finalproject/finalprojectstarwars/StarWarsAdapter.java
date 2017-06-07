@@ -14,10 +14,16 @@ import java.util.List;
 public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.ViewHolder> {
     private List<StarWarsInfo> swList;
     private Context context;
+    private OnSearchResultClickListener mSearchResultClickListener;
+
 
     public StarWarsAdapter(List<StarWarsInfo> swList1, Context context) {
         this.swList = swList1;
         this.context = context;
+    }
+
+    public StarWarsAdapter(OnSearchResultClickListener clickListener) {
+        OnSearchResultClickListener mSearchResultClickListener = clickListener;
     }
 
     @Override
@@ -37,6 +43,9 @@ public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.ViewHo
     @Override
     public int getItemCount() {
         return swList.size();
+    }
+
+    public interface OnSearchResultClickListener {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
