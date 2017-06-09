@@ -64,10 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
 
-
-
-
-
         recycleView = (RecyclerView) findViewById(R.id.recycleView);
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
