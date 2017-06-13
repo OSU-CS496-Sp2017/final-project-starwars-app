@@ -20,7 +20,7 @@ public class CompareSearch extends AppCompatActivity implements StarWarsAdapter.
         setContentView(R.layout.activity_compare_results);
 
         StarWarsAdapter adapter = new StarWarsAdapter(this);
-        mCompareSearchResultsRV = (RecyclerView)findViewById(R.id.rv_saved_search_results);
+       // mCompareSearchResultsRV = (RecyclerView)findViewById(R.id.rv_saved_search_results);
         mCompareSearchResultsRV.setLayoutManager(new LinearLayoutManager(this));
         mCompareSearchResultsRV.setHasFixedSize(true);
         mCompareSearchResultsRV.setAdapter(adapter);

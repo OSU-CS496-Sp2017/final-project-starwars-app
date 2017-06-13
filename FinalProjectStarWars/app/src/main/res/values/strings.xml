@@ -49,48 +49,11 @@
         <string name="pref_search_key2">TempUser2</string>
         <string name="pref_search_title2">TempTitle2</string>
 
-
-
-        <!-- - - - - - - - - - - - - - - - -
-             - Used for language preference -
-             - - - - - - - - - - - - - - - - -->
-        <string name="pref_language_key" translatable="false">pref_language</string>
-        <string name="pref_language_title">Programming language</string>
-        <string name="pref_language_any">Any language</string>
-        <string name="pref_language_any_value" translatable="false"></string>
-        <string name="pref_language_c">C</string>
-        <string name="pref_language_c_value" translatable="false">c</string>
-        <string name="pref_language_cpp">C++</string>
-        <string name="pref_language_cpp_value" translatable="false">c++</string>
-        <string name="pref_language_java">Java</string>
-        <string name="pref_language_java_value" translatable="false">java</string>
-        <string name="pref_language_javascript">JavaScript</string>
-        <string name="pref_language_javascript_value" translatable="false">javascript</string>
-        <string name="pref_language_python">Python</string>
-        <string name="pref_language_python_value" translatable="false">python</string>
-        <string name="pref_language_ruby">Ruby</string>
-        <string name="pref_language_ruby_value" translatable="false">ruby</string>
-        <string name="pref_language_swift">Swift</string>
-        <string name="pref_language_swift_value" translatable="false">swift</string>
-        <string name="pref_language_default">@string/pref_language_any_value</string>
-
-        <!-- - - - - - - - - - - - - - - - -
-             - Used for search-in preferences -
-             - - - - - - - - - - - - - - - - -->
-        <string name="pref_in_title">Search in</string>
-        <string name="pref_in_name_key" translatable="false">pref_in_name</string>
-        <string name="pref_in_name_title">Search in name</string>
-        <string name="pref_in_description_key" translatable="false">pref_in_description</string>
-        <string name="pref_in_description_title">Search in description</string>
-        <string name="pref_in_readme_key" translatable="false">pref_in_readme</string>
-        <string name="pref_in_readme_title">Search in README</string>
-
         <!-- - - - - - - - - - - - - - - - -
              - Used for user preference -
              - - - - - - - - - - - - - - - - -->
         <string name="pref_user_key" translatable="false">pref_user</string>
         <string name="pref_user_title">Search Value 1</string>
-
 
         <string name="pref_swapi_search_key1" translatable="false">pref_swapi_1</string>
         <string name="pref_swapi_search_title1">Please Enter Your Search</string>

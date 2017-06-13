@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
             case R.id.nav_compare:
                 mDrawerLayout.closeDrawers();
-                Intent compare = new Intent(this, SettingsActivity.class);
+                Intent compare = new Intent(this, CompareSearch.class);
                 startActivity(compare);
                 return true;
             default:

@@ -16,35 +16,12 @@
 
     <string-array name="pref_swapi_entries">
         <item>@string/pref_swapi_planets</item>
-        <item>@string/pref_swapi_people</item>
-        <item>@string/pref_swapi_vehicles</item>
+
     </string-array>
 
     <string-array name="pref_swapi_value">
         <item>@string/pref_swapi_planets_value</item>
-        <item>@string/pref_swapi_people_value</item>
-        <item>@string/pref_swapi_vehicles_value</item>
+
     </string-array>
 
-    <string-array name="pref_language_entries">
-        <item>@string/pref_language_any</item>
-        <item>@string/pref_language_c</item>
-        <item>@string/pref_language_cpp</item>
-        <item>@string/pref_language_java</item>
-        <item>@string/pref_language_javascript</item>
-        <item>@string/pref_language_python</item>
-        <item>@string/pref_language_ruby</item>
-        <item>@string/pref_language_swift</item>
-    </string-array>
-
-    <string-array name="pref_language_values">
-        <item>@string/pref_language_any_value</item>
-        <item>@string/pref_language_c_value</item>
-        <item>@string/pref_language_cpp_value</item>
-        <item>@string/pref_language_java_value</item>
-        <item>@string/pref_language_javascript_value</item>
-        <item>@string/pref_language_python_value</item>
-        <item>@string/pref_language_ruby_value</item>
-        <item>@string/pref_language_swift_value</item>
-    </string-array>
 </resources>
