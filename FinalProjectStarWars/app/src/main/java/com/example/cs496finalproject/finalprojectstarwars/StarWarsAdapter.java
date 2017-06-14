@@ -1,5 +1,6 @@
 package com.example.cs496finalproject.finalprojectstarwars;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.Search
     @Override
     public SearchResultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_display, parent, false);
+        View view = inflater.inflate(R.layout.search_result_item, parent, false);
         return new SearchResultViewHolder(view);
     }
 
@@ -47,10 +48,11 @@ public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.Search
 
         public SearchResultViewHolder(View itemView) {
             super(itemView);
-            search_result = (TextView)itemView.findViewById(R.id.display_search);
+            search_result = (TextView)itemView.findViewById(R.id.tv_search_result);
         }
 
         public void bind(StarWarsUtils.SearchResult searchResult) {
+            Log.d("StarWarsAdapter", "Getting " + searchResult.name);
             search_result.setText(searchResult.name);
         }
     }
