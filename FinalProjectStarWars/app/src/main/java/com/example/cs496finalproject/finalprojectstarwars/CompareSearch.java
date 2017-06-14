@@ -10,7 +10,7 @@ import android.support.v7.widget.RecyclerView;
  * Created by Godtop on 6/6/2017.
  */
 
-public class CompareSearch extends AppCompatActivity implements StarWarsAdapter.OnSearchResultClickListener {
+public class CompareSearch extends AppCompatActivity  {
 
     private RecyclerView mCompareSearchResultsRV;
 
@@ -19,11 +19,11 @@ public class CompareSearch extends AppCompatActivity implements StarWarsAdapter.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compare_results);
 
-        StarWarsAdapter adapter = new StarWarsAdapter(this);
+        //StarWarsAdapter adapter = new StarWarsAdapter(this);
        // mCompareSearchResultsRV = (RecyclerView)findViewById(R.id.rv_saved_search_results);
-        mCompareSearchResultsRV.setLayoutManager(new LinearLayoutManager(this));
-        mCompareSearchResultsRV.setHasFixedSize(true);
-        mCompareSearchResultsRV.setAdapter(adapter);
+        //mCompareSearchResultsRV.setLayoutManager(new LinearLayoutManager(this));
+        //mCompareSearchResultsRV.setHasFixedSize(true);
+        //mCompareSearchResultsRV.setAdapter(adapter);
 
     }
 
