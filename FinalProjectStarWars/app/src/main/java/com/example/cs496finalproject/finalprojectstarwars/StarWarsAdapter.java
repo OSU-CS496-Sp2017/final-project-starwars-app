@@ -1,5 +1,4 @@
 package com.example.cs496finalproject.finalprojectstarwars;
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,57 +13,45 @@ import java.util.List;
  * Created by pranavramesh on 6/5/17.
  */
 
-public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.ViewHolder> {
-    private List<StarWarsInfo> swList;
-    private ArrayList<StarWarsUtils.SearchResult> resultList;
-    private Context context;
-    private OnSearchResultClickListener mSearchResultClickListener;
+public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.SearchResultViewHolder> {
+    private ArrayList<StarWarsUtils.SearchResult> searchResults;
 
-
-    public StarWarsAdapter(List<StarWarsInfo> swList1, Context context) {
-        this.swList = swList1;
-        this.context = context;
-    }
-
-    public StarWarsAdapter(OnSearchResultClickListener clickListener) {
-        OnSearchResultClickListener mSearchResultClickListener = clickListener;
-    }
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View w = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_display, parent, false);
-        return new ViewHolder(w);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        StarWarsInfo item = swList.get(position);
-
-        holder.swString2.setText(item.getSWInfo());
-
+    public void updateSearchResults(ArrayList<StarWarsUtils.SearchResult> searchResultsList) {
+        searchResults = searchResultsList;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return swList.size();
+        if (searchResults != null) {
+            return searchResults.size();
+        } else {
+            return 0;
+        }
     }
 
-    public void updateSearchResults(ArrayList<StarWarsUtils.SearchResult> searchResultsList) {
-        resultList = searchResultsList;
-        notifyDataSetChanged();
+    @Override
+    public SearchResultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.item_display, parent, false);
+        return new SearchResultViewHolder(view);
     }
 
-    public interface OnSearchResultClickListener {
+    @Override
+    public void onBindViewHolder(SearchResultViewHolder holder, int position) {
+        holder.bind(searchResults.get(position));
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    class SearchResultViewHolder extends RecyclerView.ViewHolder {
+        private TextView search_result;
 
-        public TextView swString2;
-
-        public ViewHolder(View itemView) {
+        public SearchResultViewHolder(View itemView) {
             super(itemView);
+            search_result = (TextView)itemView.findViewById(R.id.display_search);
+        }
 
-            swString2 = (TextView) itemView.findViewById(R.id.swString);
+        public void bind(StarWarsUtils.SearchResult searchResult) {
+            search_result.setText(searchResult.name);
         }
     }
 }

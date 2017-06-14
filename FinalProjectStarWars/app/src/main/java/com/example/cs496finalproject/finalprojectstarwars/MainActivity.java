@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.cs496finalproject.finalprojectstarwars.utils.StarWarsUtils;
@@ -34,14 +35,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private StarWarsAdapter adapter;
-    private ProgressBar mLoadingIndicatorPB;
-    private TextView mLoadingErrorMessageTV;
+    private ProgressBar loadingBar;
 
     private RecyclerView recycleView;
+    private RecyclerView results;
+    private RadioGroup rdg;
+    private RadioButton people;
+    private RadioButton planets;
+    private RadioButton vehicles;
     private EditText searchBox;
     private String choice;
-    private RecyclerView.Adapter rv_adapter;
-    //private List<WeatherInfo> weather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         searchBox = (EditText)findViewById(R.id.et_search_box);
+        rdg = (RadioGroup) findViewById(R.id.rdg);
+        people = (RadioButton) findViewById(R.id.radioButton);
+        planets = (RadioButton) findViewById(R.id.radioButton2);
+        vehicles = (RadioButton) findViewById(R.id.radioButton3);
+        loadingBar = (ProgressBar)findViewById(R.id.pb_loading_indicator);
+        results = (RecyclerView)findViewById(R.id.rv_search_results);
+
         //Drawer Shenagigans
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -59,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recycleView = (RecyclerView) findViewById(R.id.recycleView);
         recycleView.setHasFixedSize(true);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new StarWarsAdapter();
+        results.setAdapter(adapter);
 
 
 
@@ -66,12 +78,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         final Button button = (Button) findViewById(R.id.btn_search);
+        rdg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(i==R.id.radioButton){
+                    choice = people.getText().toString();
+                }else if(i==R.id.radioButton2){
+                    choice = planets.getText().toString();
+                }else if(i==R.id.radioButton3){
+                    choice = vehicles.getText().toString();
+                }
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.d("MainActivity","Inside Click Listener");
                 String searchQuery = searchBox.getText().toString();
                 if (!TextUtils.isEmpty(searchQuery)) {
-                    doSWSearch(searchQuery, "planets");
+                    doSWSearch(searchQuery, choice);
                 }
             }
 
@@ -90,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //mLoadingIndicatorPB.setVisibility(View.VISIBLE);
+            loadingBar.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -107,38 +132,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         protected void onPostExecute(String s) {
-            //mLoadingIndicatorPB.setVisibility(View.INVISIBLE);
+            loadingBar.setVisibility(View.INVISIBLE);
             if (s != null) {
-                //mLoadingErrorMessageTV.setVisibility(View.INVISIBLE);
-                //mSearchResultsRV.setVisibility(View.VISIBLE);
                 ArrayList<StarWarsUtils.SearchResult> searchResultsList = StarWarsUtils.parseStarWarsSearchResultsJSON(s);
-                //adapter.updateSearchResults(searchResultsList);
+                adapter.updateSearchResults(searchResultsList);
             } else {
-                //mSearchResultsRV.setVisibility(View.INVISIBLE);
-                //mLoadingErrorMessageTV.setVisibility(View.VISIBLE);
+                results.setVisibility(View.INVISIBLE);
+
             }
         }
 
-        public void onRadioButtonClicked(View view) {
-            // Is the button now checked?
-            boolean checked = ((RadioButton) view).isChecked();
 
-            // Check which radio button was clicked
-            switch (view.getId()) {
-                case R.id.radioButton:
-                    if (checked)
-                        choice = "planets";
-                    break;
-                case R.id.radioButton2:
-                    if (checked)
-                        choice = "people";
-                    break;
-                case R.id.radioButton3:
-                    if (checked)
-                        choice = "vehicles";
-                    break;
-            }
-        }
     }
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
