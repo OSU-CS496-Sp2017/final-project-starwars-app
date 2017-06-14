@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         planets = (RadioButton) findViewById(R.id.radioButton2);
         vehicles = (RadioButton) findViewById(R.id.radioButton3);
         loadingBar = (ProgressBar)findViewById(R.id.pb_loading_indicator);
-        results = (RecyclerView)findViewById(R.id.rv_search_results);
 
         //Drawer Shenagigans
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
