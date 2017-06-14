@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.cs496finalproject.finalprojectstarwars.utils.StarWarsUtils;
+
+import java.util.ArrayList;
 import java.util.List;
 /**
  * Created by pranavramesh on 6/5/17.
@@ -13,6 +16,7 @@ import java.util.List;
 
 public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.ViewHolder> {
     private List<StarWarsInfo> swList;
+    private ArrayList<StarWarsUtils.SearchResult> resultList;
     private Context context;
     private OnSearchResultClickListener mSearchResultClickListener;
 
@@ -43,6 +47,11 @@ public class StarWarsAdapter extends RecyclerView.Adapter<StarWarsAdapter.ViewHo
     @Override
     public int getItemCount() {
         return swList.size();
+    }
+
+    public void updateSearchResults(ArrayList<StarWarsUtils.SearchResult> searchResultsList) {
+        resultList = searchResultsList;
+        notifyDataSetChanged();
     }
 
     public interface OnSearchResultClickListener {
