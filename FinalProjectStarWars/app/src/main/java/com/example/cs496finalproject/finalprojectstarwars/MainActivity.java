@@ -2,7 +2,6 @@ package com.example.cs496finalproject.finalprojectstarwars;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,7 +21,6 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Button;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.example.cs496finalproject.finalprojectstarwars.utils.StarWarsUtils;
 import com.example.cs496finalproject.finalprojectstarwars.utils.NetworkUtils;
@@ -34,29 +32,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    private StarWarsAdapter adapter;
+    private StarWarsAdapter mSWapiSearchAdapter;
     private ProgressBar loadingBar;
 
-    private RecyclerView recycleView;
+    private RecyclerView mSearchResultsRV;
     private RecyclerView results;
     private RadioGroup rdg;
     private RadioButton people;
     private RadioButton planets;
     private RadioButton vehicles;
-    private EditText searchBox;
+    private EditText mSearchBoxET;
     private String choice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        searchBox = (EditText)findViewById(R.id.et_search_box);
-        rdg = (RadioGroup) findViewById(R.id.rdg);
-        people = (RadioButton) findViewById(R.id.radioButton);
-        planets = (RadioButton) findViewById(R.id.radioButton2);
-        vehicles = (RadioButton) findViewById(R.id.radioButton3);
-        loadingBar = (ProgressBar)findViewById(R.id.pb_loading_indicator);
 
         //Drawer Shenagigans
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -65,11 +56,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
 
-        recycleView = (RecyclerView)findViewById(R.id.recycleView);
-        recycleView.setLayoutManager(new LinearLayoutManager(this));
-        recycleView.setHasFixedSize(true);
-        adapter = new StarWarsAdapter();
-        recycleView.setAdapter(adapter); //Why was this results?
+
+        mSearchBoxET = (EditText)findViewById(R.id.et_search_box);
+        rdg = (RadioGroup) findViewById(R.id.rdg);
+        people = (RadioButton) findViewById(R.id.radioButton);
+        planets = (RadioButton) findViewById(R.id.radioButton2);
+        vehicles = (RadioButton) findViewById(R.id.radioButton3);
+        loadingBar = (ProgressBar)findViewById(R.id.pb_loading_indicator);
+
+
+        mSearchResultsRV = (RecyclerView)findViewById(R.id.rv_search_results);
+        mSearchResultsRV.setLayoutManager(new LinearLayoutManager(this));
+        mSearchResultsRV.setHasFixedSize(true);
+        mSWapiSearchAdapter = new StarWarsAdapter();
+        mSearchResultsRV.setAdapter(mSWapiSearchAdapter); //Why was this results?
 
         NavigationView navigationView = (NavigationView)findViewById(R.id.nv_navigation_drawer);
         navigationView.setNavigationItemSelectedListener(this);
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.d("MainActivity","Inside Click Listener");
-                String searchQuery = searchBox.getText().toString();
+                String searchQuery = mSearchBoxET.getText().toString();
                 if (!TextUtils.isEmpty(searchQuery)) {
                     doSWSearch(searchQuery, choice);
                 }
@@ -131,8 +131,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         protected void onPostExecute(String s) {
             loadingBar.setVisibility(View.INVISIBLE);
             if (s != null) {
+                Log.d("MainActivity", "We Made it with" + s);
+                mSearchResultsRV.setVisibility(View.VISIBLE);
                 ArrayList<StarWarsUtils.SearchResult> searchResultsList = StarWarsUtils.parseStarWarsSearchResultsJSON(s);
-                adapter.updateSearchResults(searchResultsList);
+                mSWapiSearchAdapter.updateSearchResults(searchResultsList);
             } else {
                 results.setVisibility(View.INVISIBLE);
 
