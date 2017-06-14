@@ -3,8 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-
     <ListPreference
         android:key="@string/pref_swapi_key"
         android:title="@string/pref_swapi_title"
@@ -24,6 +22,7 @@
         android:key="@string/pref_swapi_search_key2"
         android:title="@string/pref_swapi_search_title2"
         android:dialogTitle="@string/pref_swapi_search_title2" />
+
 
 
 </PreferenceScreen>

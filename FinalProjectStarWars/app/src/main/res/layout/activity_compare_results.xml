@@ -4,10 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cs496finalproject.finalprojectstarwars.CompareSearch">
+    tools:context="com.example.cs496finalproject.finalprojectstarwars.CompareSearch"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/refresh_pref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_saved_search_results"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
+
 </LinearLayout>
