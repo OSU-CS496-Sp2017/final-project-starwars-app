@@ -2,6 +2,7 @@ package com.example.cs496finalproject.finalprojectstarwars.utils;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,14 +64,15 @@ public class StarWarsUtils {
     public static ArrayList<SearchResult> parseStarWarsSearchResultsJSON(String searchResultsJSON) {
         try {
             JSONObject searchResultsObj = new JSONObject(searchResultsJSON);
-            JSONArray searchResultsItems = searchResultsObj.getJSONArray("items");
-
+            JSONArray searchResultsItems = searchResultsObj.getJSONArray("results");
             ArrayList<SearchResult> searchResultsList = new ArrayList<SearchResult>();
             for (int i = 0; i < searchResultsItems.length(); i++) {
+
                 SearchResult searchResult = new SearchResult();
                 JSONObject searchResultItem = searchResultsItems.getJSONObject(i);
+
                 searchResult.name = searchResultItem.getString("name");
-                searchResult.diameter = searchResultItem.getString("diameter");
+
                 searchResultsList.add(searchResult);
             }
             return searchResultsList;
