@@ -32,7 +32,7 @@
     <RadioGroup
         android:id="@+id/rdg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
@@ -64,10 +64,6 @@
 
 
         </FrameLayout>
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_search_results"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
         <ProgressBar
             android:id="@+id/pb_loading_indicator"
