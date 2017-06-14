@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (s != null) {
                 Log.d("MainActivity", "We Made it with" + s);
                 mSearchResultsRV.setVisibility(View.VISIBLE);
-                ArrayList<StarWarsUtils.SearchResult> searchResultsList = StarWarsUtils.parseStarWarsSearchResultsJSON(s);
+                ArrayList<StarWarsUtils.SearchResult> searchResultsList = StarWarsUtils.parseStarWarsSearchResultsJSON(s, choice);
                 mSWapiSearchAdapter.updateSearchResults(searchResultsList);
             } else {
                 results.setVisibility(View.INVISIBLE);

@@ -26,21 +26,20 @@ public class StarWarsUtils {
     public static class SearchResult implements Serializable {
         public static final String EXTRA_SEARCH_RESULT = "StarWarsUtils.SearchResult";
         public String name;
-        public String diameter;
+        public double diameter;
     }
 
     //Call this function twice with two different strings to compare
     public static String buildSWSearchURL(String search, String thing) {
         Uri.Builder builder = new Uri.Builder();
-        if (thing.compareToIgnoreCase("planets") == 0){
+        if (thing.compareToIgnoreCase("planets") == 0) {
             builder.scheme("https")
                     .authority(SW_SEARCH_BASE_URL)
                     .appendPath("api")
                     .appendPath(SW_SEARCH_QUERY_PLANETS)
                     .appendPath("")
                     .appendQueryParameter(SW_SEARCH_QUERY_PARAM, search);
-        }
-        else if (thing.compareToIgnoreCase("people") == 0){
+        } else if (thing.compareToIgnoreCase("people") == 0) {
 
             builder.scheme("https")
                     .authority(SW_SEARCH_BASE_URL)
@@ -48,8 +47,7 @@ public class StarWarsUtils {
                     .appendPath(SW_SEARCH_QUERY_PEOPLES)
                     .appendPath("")
                     .appendQueryParameter(SW_SEARCH_QUERY_PARAM, search);
-        }
-        else if (thing.compareToIgnoreCase("vehicles") == 0){
+        } else if (thing.compareToIgnoreCase("vehicles") == 0) {
             builder.scheme("https")
                     .authority(SW_SEARCH_BASE_URL)
                     .appendPath("api")
@@ -61,7 +59,7 @@ public class StarWarsUtils {
         return builder.build().toString();
     }
 
-    public static ArrayList<SearchResult> parseStarWarsSearchResultsJSON(String searchResultsJSON) {
+    public static ArrayList<SearchResult> parseStarWarsSearchResultsJSON(String searchResultsJSON, String choice) {
         try {
             JSONObject searchResultsObj = new JSONObject(searchResultsJSON);
             JSONArray searchResultsItems = searchResultsObj.getJSONArray("results");
@@ -73,11 +71,16 @@ public class StarWarsUtils {
 
                 searchResult.name = searchResultItem.getString("name");
 
+                if (choice.equals("planets")) {
+                    searchResult.diameter = searchResultItem.getDouble("diameter");
+                }
+
                 searchResultsList.add(searchResult);
             }
             return searchResultsList;
         } catch (JSONException e) {
             return null;
+
         }
     }
 }
