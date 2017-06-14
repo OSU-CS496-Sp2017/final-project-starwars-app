@@ -66,13 +66,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
 
-        recycleView = (RecyclerView) findViewById(R.id.recycleView);
-        recycleView.setHasFixedSize(true);
+        recycleView = (RecyclerView)findViewById(R.id.recycleView);
         recycleView.setLayoutManager(new LinearLayoutManager(this));
+        recycleView.setHasFixedSize(true);
         adapter = new StarWarsAdapter();
-        results.setAdapter(adapter);
-
-
+        recycleView.setAdapter(adapter); //Why was this results?
 
         NavigationView navigationView = (NavigationView)findViewById(R.id.nv_navigation_drawer);
         navigationView.setNavigationItemSelectedListener(this);
