@@ -23,7 +23,7 @@
         <activity
             android:name="com.example.cs496finalproject.finalprojectstarwars.SettingsActivity"
             android:label="@string/action_settings"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".CompareSearch">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
